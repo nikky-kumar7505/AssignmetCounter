@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        margin: 0x;
+        padding: 0x;
+        background-color: black;
+        color: white;
+        margin-left:40px ;
+    }
+    .heading{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 70px;
+        margin-top: 30px;
+        margin-left: 30px;
+    }
+    .current{
+        margin-right: 32px;
+        font-size: 30px;
+    }
+    .holdC{
+        display: flex;
+        margin-left: 30px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .current{
+        display: inline-block;
+    }
+    .counter{
+        display: inline-block;
+    }
+    #ruler{
+        margin-right: 700px;
+        margin-left: 30px;
+    }
+    .buttons{
+        margin-left: 30px;
+        margin-top: 20px;
+    }
+    .whiteB{
+        padding: 8px;
+        padding-right:36px ;
+        padding-left:36px ;
+        margin: 5px;
+    }
+    #cl{
+        background-color: black;
+        color: white;
+        border: 2px solid white;
+        padding: 8px;
+        padding-right:36px ;
+        padding-left:36px ;
+        margin: 5px;
+    }
+    .error{
+        font-size: 18px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: red;
+        margin: 10px;
+        display: none;
+        margin-left:30px ;
+    }
+
+</style>
+<body>
+    <div class="heading">Counter using HTML</div>
+    <div class="holdC">
+        <div class="current">Your current count is : <div class="counter">1</div></div>
+    </div>
+    <hr id="ruler">
+    <div class="error">Error : Cannot go below 0</div>
+    <div class="buttons">
+        <button class="whiteB decrement">Decrement</button>
+        <button class="whiteB increment">Increment</button>
+        <button id="cl">Clear</button>
+    </div>
+</body>
+<script>
+    let CounterEl =   document.querySelector(".counter")
+    let error = document.querySelector(".error")
+    let Increment = document.querySelector(".increment")
+    let clear = document.querySelector("#cl")
+    let decrement = document.querySelector(".decrement")
+
+
+
+    decrement.addEventListener("click", ()=>{
+        let Countervalue = Number(CounterEl.innerHTML)
+       if(Countervalue == 0){
+            error.style.display = "inline-block"
+            decrement.disable = true
+        }
+        document.querySelector(".counter").innerHTML = Number(document.querySelector(".counter").innerHTML) - 1
+    })
+
+
+    Increment.addEventListener("click", ()=>{
+        error.style.display = "none"
+        document.querySelector(".counter").innerHTML = Number(document.querySelector(".counter").innerHTML) + 1
+    })
+    console.log(decrement);
+
+    clear.addEventListener("click",()=>{
+        CounterEl.innerHTML = 0
+        error.style.display = "inline-block"
+    })
+
+    
+</script>
+</html>
